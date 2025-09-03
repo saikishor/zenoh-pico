@@ -767,20 +767,26 @@ z_result_t z_open(z_owned_session_t *zs, z_moved_config_t *config, const z_open_
         _Z_ERROR_RETURN(_Z_ERR_GENERIC);
     }
 
+    _Z_DEBUG("Getting session...");
     _z_id_t zid = _z_session_get_zid(cfg);
+    _Z_DEBUG("Z session is successfully opened.");
 
+    _Z_DEBUG("Initializing session...");
     z_result_t ret = _z_session_rc_init(zs, &zid);
     if (ret != _Z_RES_OK) {
         z_config_drop(config);
         return ret;
     }
+    _Z_DEBUG("Session is successfully initialized.");
 
+    _Z_DEBUG("Opening transport link...");
     ret = _z_open(&zs->_rc, cfg, &zid);
     if (ret != _Z_RES_OK) {
         z_session_drop(z_session_move(zs));
         z_config_drop(config);
         return ret;
     }
+    _Z_DEBUG("Transport link is successfully opened.");
 
     // Clean up
 #if Z_FEATURE_AUTO_RECONNECT == 1

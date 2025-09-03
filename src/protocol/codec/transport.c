@@ -216,7 +216,7 @@ z_result_t _z_init_encode(_z_wbuf_t *wbf, uint8_t header, const _z_t_msg_init_t 
         }
     }
 #endif
-
+    _Z_DEBUG("Encoding _Z_MID_T_INIT Done");
     return ret;
 }
 
