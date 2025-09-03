@@ -823,12 +823,10 @@ z_result_t _z_open_serial_from_pins(_z_sys_net_socket_t *sock, uint32_t txpin, u
     z_result_t ret = _Z_RES_OK;
 
     uint8_t uart = 255;
-    if (rxpin == 3 && txpin == 1) {
+    if (rxpin == 44 && txpin == 43) {
         uart = 0;
-    } else if (rxpin == 9 && txpin == 10) {
+    } else if (rxpin == 18 && txpin == 17) {
         uart = 1;
-    } else if (rxpin == 16 && txpin == 17) {
-        uart = 2;
     } else {
 _Z_ERROR_LOG(_Z_ERR_GENERIC);
         ret = _Z_ERR_GENERIC;
@@ -862,15 +860,11 @@ z_result_t _z_open_serial_from_dev(_z_sys_net_socket_t *sock, char *dev, uint32_
     uint32_t txpin = 0;
     if (strcmp(dev, "UART_0") == 0) {
         uart = 0;
-        rxpin = 3;
-        txpin = 1;
+        rxpin = 44;
+        txpin = 43;
     } else if (strcmp(dev, "UART_1") == 0) {
         uart = 1;
-        rxpin = 9;
-        txpin = 10;
-    } else if (strcmp(dev, "UART_2") == 0) {
-        uart = 2;
-        rxpin = 16;
+        rxpin = 18;
         txpin = 17;
     } else {
         _Z_ERROR_RETURN(_Z_ERR_GENERIC);
