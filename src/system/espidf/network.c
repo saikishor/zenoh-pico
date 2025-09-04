@@ -733,8 +733,8 @@ z_result_t _z_open_serial_from_dev(_z_sys_net_socket_t *sock, char *dev, uint32_
     uint32_t txpin = 0;
     if (strcmp(dev, "UART_0") == 0) {
         sock->_serial = UART_NUM_0;
-        rxpin = 3;
-        txpin = 1;
+        rxpin = 44;
+        txpin = 43;
     } else if (strcmp(dev, "UART_1") == 0) {
         sock->_serial = UART_NUM_1;
         rxpin = 9;
