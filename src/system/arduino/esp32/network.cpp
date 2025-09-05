@@ -837,9 +837,9 @@ _Z_ERROR_LOG(_Z_ERR_GENERIC);
         //          To minimize this issue the RxPin is set to INPUT_PULLUP, and set the TxPin is driven to HIGH. This
         //          will keep the pins high and upon initialization of the serial port using serial.begin() the line
         //          does not float (drops to low).
-        pinMode(rxpin, INPUT_PULLUP);
-        pinMode(txpin, OUTPUT);
-        digitalWrite(txpin, HIGH);
+        //  pinMode(rxpin, INPUT_PULLUP);
+        //  pinMode(txpin, OUTPUT);
+        //  digitalWrite(txpin, HIGH);
 
         sock->_serial = new HardwareSerial(uart);
         if (sock->_serial != NULL) {
@@ -874,9 +874,9 @@ z_result_t _z_open_serial_from_dev(_z_sys_net_socket_t *sock, char *dev, uint32_
     //          To minimize this issue the RxPin is set to INPUT_PULLUP, and set the TxPin is driven to HIGH. This
     //          will keep the pins high and upon initialization of the serial port using serial.begin() the line
     //          does not float (drops to low).
-    pinMode(rxpin, INPUT_PULLUP);
-    pinMode(txpin, OUTPUT);
-    digitalWrite(txpin, HIGH);
+    // pinMode(rxpin, INPUT_PULLUP);
+    // pinMode(txpin, OUTPUT);
+    // digitalWrite(txpin, HIGH);
 
     sock->_serial = new HardwareSerial(uart);
     if (sock->_serial != NULL) {
